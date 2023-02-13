@@ -2,14 +2,14 @@ import React from 'react';
 import "./NavInShort.css";
 import HamburgerDrawer from "./HamburgerDrawer";
 
-const NavInShort = ({setCategory,setLoadmore}) => {
+const NavInShort = ({setCategory}) => {
     
 
   return (
     
     <div className='nav'>
         <div className='icon'>
-         <HamburgerDrawer setCategory={setCategory} setLoadmore={setLoadmore}/>
+         <HamburgerDrawer setCategory={setCategory} />
         </div>
         <img 
         

@@ -17,7 +17,7 @@ import Categories from '../data/Categories';
 
 
 
-export default function SwipeableTemporaryDrawer({setCategory ,setLoadmore}) {
+export default function SwipeableTemporaryDrawer({setCategory}) {
     
   const [state, setState] = React.useState({
     
@@ -72,7 +72,7 @@ paddingRight:0.5 }}
             <ListItemButton 
             onClick={()=>{
                 setCategory(text)
-                setLoadmore(20)
+                
                 }}>
               
               <ListItemText  primary={text} /> 

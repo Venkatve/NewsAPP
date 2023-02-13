@@ -18,7 +18,7 @@ const NewsCard = ({newsItem}) => {
             <span className='author'>
                 <a href={newsItem.url} target="__blank">
                     <b>
-                        Short
+                        Short {" "}
                     </b>
                 </a>
                 <span className='muted'>by {newsItem.author ? newsItem.author :"unknown" }</span>
@@ -28,7 +28,7 @@ const NewsCard = ({newsItem}) => {
            <div className='lowerNewsText'>
                 <div className='description'>{newsItem.description}</div>
                 <span className='readmore'>
-                    readmore at 
+                    readmore at {" "}
                     <a href={newsItem.url} target="__blank">
                         <b>{newsItem.source.name}</b>
                     </a>

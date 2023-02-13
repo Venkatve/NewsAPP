@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import NavInShort from './components/NavInShort';
-import Apikey from "./data/Config"
+// import Apikey from "./data/Config"
 import axios from 'axios';
 import NewsContent from './components/NewsContent/NewsContent';
 import Footer from './components/Footer/Footer';
 
 function App() {
-  const[category,setCategory] = useState("Sports");
+  const[category,setCategory] = useState("general");
   const[newsArray,setNewsArray] = useState([])
-  const[newsResults,setNewsResults] = useState();
-  const[loadmore,setLoadmore] = useState(20);
+  
+  
  
   const newsApi=async()=>{
     try{
-        const news= await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${Apikey}&pageSize=${loadmore}`)
-        
-        
+      // const proxyUrl="https://cors-anywhere.herokuapp.com/"
+        // const news= await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${Apikey}&pageSize=${loadmore}`)
+        const news= await axios.get(`https://saurav.tech/NewsAPI/top-headlines/category/${category}/in.json`)
+        console.log(news)
         setNewsArray(news.data.articles)
-        setNewsResults(news.data.totalResults)
+        
     }
       
     catch(err){
@@ -28,14 +29,14 @@ function App() {
   useEffect(()=>{ 
      newsApi()
      // eslint-disable-next-line
-  },[category,newsResults,loadmore])
+  },[category])
   
   return (
     
     <div className="App">
       
-      <NavInShort setLoadmore={setLoadmore} setCategory={setCategory}/>
-      <NewsContent loadmore={loadmore} setLoadmore={setLoadmore} newsArray={newsArray} newsResults={newsResults}/>
+      <NavInShort  setCategory={setCategory}/>
+      <NewsContent  newsArray={newsArray} />
       
       <Footer/>
     </div>
